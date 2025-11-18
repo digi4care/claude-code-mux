@@ -752,6 +752,12 @@ impl AnthropicProvider for OpenAIProvider {
                         .filter_map(|block| {
                             match block {
                                 crate::models::ContentBlock::Text { text } => Some(text.clone()),
+                                crate::models::ContentBlock::ToolResult { content, .. } => {
+                                    Some(content.to_string())
+                                }
+                                crate::models::ContentBlock::Thinking { thinking, .. } => {
+                                    Some(thinking.clone())
+                                }
                                 _ => None,
                             }
                         })
