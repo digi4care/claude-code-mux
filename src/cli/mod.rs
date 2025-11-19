@@ -147,7 +147,7 @@ impl AppConfig {
         Ok(config)
     }
 
-    /// Create a default configuration file
+    /// Create a default configuration file or migrate existing one
     fn create_default_config(path: &PathBuf) -> Result<()> {
         // Create parent directory if it doesn't exist
         if let Some(parent) = path.parent() {
@@ -155,16 +155,35 @@ impl AppConfig {
                 .with_context(|| format!("Failed to create config directory: {}", parent.display()))?;
         }
 
-        // Generate default config content
-        let default_config = Self::default_config_content();
+        // Check for existing config in old location (config/default.toml)
+        let old_config_path = PathBuf::from("config/default.toml");
+        if old_config_path.exists() {
+            // Migrate existing config
+            eprintln!("📦 Migrating existing config from {} to {}",
+                old_config_path.display(), path.display());
 
-        // Write to file
-        std::fs::write(path, default_config)
-            .with_context(|| format!("Failed to write default config file: {}", path.display()))?;
+            std::fs::copy(&old_config_path, path)
+                .with_context(|| format!("Failed to migrate config from {} to {}",
+                    old_config_path.display(), path.display()))?;
 
-        eprintln!("Created default config file at: {}", path.display());
-        eprintln!("Please edit the config file to add your providers and models.");
-        eprintln!("You can also configure via the web UI at http://127.0.0.1:13456");
+            eprintln!("✅ Migration complete! Your existing configuration has been preserved.");
+            eprintln!("   Old location: {}", old_config_path.display());
+            eprintln!("   New location: {}", path.display());
+            eprintln!();
+            eprintln!("💡 You can safely delete the old config file if you want:");
+            eprintln!("   rm {}", old_config_path.display());
+        } else {
+            // Generate default config content
+            let default_config = Self::default_config_content();
+
+            // Write to file
+            std::fs::write(path, default_config)
+                .with_context(|| format!("Failed to write default config file: {}", path.display()))?;
+
+            eprintln!("Created default config file at: {}", path.display());
+            eprintln!("Please edit the config file to add your providers and models.");
+            eprintln!("You can also configure via the web UI at http://127.0.0.1:13456");
+        }
 
         Ok(())
     }
