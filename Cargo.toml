@@ -1,11 +1,10 @@
 [package]
 name = "claude-code-mux"
-version = "0.5.1"
+version = "0.5.2"
 edition = "2021"
-authors = ["Claude Code Mux Contributors"]
 license = "MIT"
 description = "High-performance, intelligent Claude Code router built in Rust"
-repository = "https://github.com/yourusername/claude-code-mux"
+repository = "https://github.com/9j/claude-code-mux"
 keywords = ["claude", "code", "router", "llm", "ai"]
 categories = ["command-line-utilities", "web-programming"]
 
