@@ -5,6 +5,14 @@ All notable changes to Claude Code Mux will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.9] - 2026-01-09
+
+### Fixed
+- Corrected build documentation for RUST_MIN_STACK workaround
+  - .cargo/config.toml cannot set environment variables
+  - Updated README and CONTRIBUTING with correct instructions
+  - Build now requires manual RUST_MIN_STACK=16777216 export
+
 ## [0.6.8] - 2026-01-09
 
 ### Fixed

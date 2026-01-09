@@ -55,9 +55,7 @@ cargo run
 
 # Run with release optimizations
 # NOTE: Rust 1.92.0+ requires increased stack size for LTO
-cargo run --release
-# Or explicitly set stack size:
-# RUST_MIN_STACK=16777216 cargo run --release
+RUST_MIN_STACK=16777216 cargo run --release
 
 # Format code
 cargo fmt
@@ -79,14 +77,16 @@ This is a known issue with aggressive LTO optimizations in newer Rust versions.
 
 **Solutions:**
 
-1. **Recommended**: Use the provided `.cargo/config.toml` (included in repo)
-   - Automatically sets `RUST_MIN_STACK=16777216` for release builds
-   - No manual intervention needed
-
-2. **Manual**: Set environment variable before building:
+1. **Set environment variable** (recommended):
    ```bash
    export RUST_MIN_STACK=16777216
    cargo build --release
+   ```
+
+2. **Add to shell profile** (persistent):
+   ```bash
+   echo 'export RUST_MIN_STACK=16777216' >> ~/.bashrc  # or ~/.zshrc
+   source ~/.bashrc
    ```
 
 3. **Alternative**: Reduce LTO aggressiveness (not recommended):

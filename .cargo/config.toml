@@ -1,14 +1,18 @@
 # Cargo build configuration for claude-code-mux
-#
-# This config fixes Rust 1.92.0+ LTO stack overflow issue
-# See: https://github.com/rust-lang/rust/issues/123281
-
-[build]
-# Increase Rust compiler stack size for LTO (Link-Time Optimization)
-# Required for Rust 1.92.0+ with aggressive LTO optimizations
-# Default stack (8MB) is too small for complex serde enums + LTO
-env = { RUST_MIN_STACK = "16777216" }  # 16 MB
 
 [net]
-# Git dependencies fetch with SSH for authentication
+# Git dependencies fetch with CLI for better SSH support
 git-fetch-with-cli = true
+
+# Note: RUST_MIN_STACK workaround cannot be set in .cargo/config.toml
+# Use one of these methods instead:
+#
+# 1. Set environment variable before building:
+#    export RUST_MIN_STACK=16777216
+#    cargo build --release
+#
+# 2. Or create a build script:
+#    echo 'export RUST_MIN_STACK=16777216' >> .envrc
+#    source .envrc
+#
+# This fixes Rust 1.92.0+ LTO stack overflow issue
