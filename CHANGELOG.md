@@ -5,6 +5,17 @@ All notable changes to Claude Code Mux will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.8] - 2026-01-09
+
+### Fixed
+- Fixed Rust 1.92.0 LTO build crash (SIGSEGV in LLVM)
+  - Added RUST_MIN_STACK workaround for release builds
+  - Documented build requirements in README and CONTRIBUTING
+  - Created .cargo/config.toml for consistent build environment
+
+### Changed
+- Enhanced build documentation with stack size requirements
+
 ## [0.6.7] - 2026-01-09
 
 ### Fixed

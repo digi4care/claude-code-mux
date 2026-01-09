@@ -44,7 +44,7 @@ By participating in this project, you agree to maintain a respectful and inclusi
 ### Build and Run
 
 ```bash
-# Build the project
+# Build the project (debug mode)
 cargo build
 
 # Run tests
@@ -54,7 +54,10 @@ cargo test
 cargo run
 
 # Run with release optimizations
+# NOTE: Rust 1.92.0+ requires increased stack size for LTO
 cargo run --release
+# Or explicitly set stack size:
+# RUST_MIN_STACK=16777216 cargo run --release
 
 # Format code
 cargo fmt
@@ -62,6 +65,33 @@ cargo fmt
 # Check for linting issues
 cargo clippy
 ```
+
+### Known Build Issues
+
+**Rust 1.92.0 LTO Stack Overflow**
+
+When building with `--release` on Rust 1.92.0 or later, you may encounter a compiler crash:
+```
+error: rustc interrupted by SIGSEGV
+```
+
+This is a known issue with aggressive LTO optimizations in newer Rust versions.
+
+**Solutions:**
+
+1. **Recommended**: Use the provided `.cargo/config.toml` (included in repo)
+   - Automatically sets `RUST_MIN_STACK=16777216` for release builds
+   - No manual intervention needed
+
+2. **Manual**: Set environment variable before building:
+   ```bash
+   export RUST_MIN_STACK=16777216
+   cargo build --release
+   ```
+
+3. **Alternative**: Reduce LTO aggressiveness (not recommended):
+   - Edit `Cargo.toml`: change `lto = true` to `lto = "thin"`
+   - Or change `codegen-units = 1` to `codegen-units = 16`
 
 ### Project Structure
 

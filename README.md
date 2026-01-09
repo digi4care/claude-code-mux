@@ -203,10 +203,23 @@ git clone https://github.com/9j/claude-code-mux
 cd claude-code-mux
 
 # Build the release binary
+# NOTE: Rust 1.92.0+ includes .cargo/config.toml for LTO stack fix
 cargo build --release
 
 # The binary will be available at target/release/ccm
 ```
+
+**Known Build Issue (Rust 1.92.0+):**
+
+If you encounter `error: rustc interrupted by SIGSEGV` during release build:
+
+```bash
+# Solution 1: Use the provided .cargo/config.toml (already included)
+# Solution 2: Manually set stack size
+RUST_MIN_STACK=16777216 cargo build --release
+```
+
+This is a compiler LTO optimization issue, not a code bug. The `.cargo/config.toml` file in this repo handles it automatically.
 
 #### Install to PATH (Optional)
 
