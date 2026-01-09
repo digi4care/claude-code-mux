@@ -38,7 +38,7 @@ Creates comprehensive proposals with automatic verification and research.
 1. **Verifies actual code** - Reads files, checks git history (prevents "imaginary code")
 2. **Researches best practices** - WebSearch, reference repositories
 3. **Presents options** - 2-3 approaches with pros/cons/costs
-4. **Waits for decision** - User chooses option ("1", "2", "ㄱㄱ")
+4. **Waits for decision** - User chooses option ("1", "2", "go")
 5. **Generates files** - Creates proposal.md, tasks.md, spec deltas
 6. **Validates strictly** - Ensures correctness before completing
 
@@ -66,9 +66,9 @@ Implements proposals with checkpoint-based workflow.
 6. Suggests review when complete
 
 **Checkpoint workflow:**
-- "ㄱㄱ" (go) - Continue to next task
-- "잠깐" (wait) - Pause and revise current task
-- "아니" (no) - Skip or change approach
+- "go" - Continue to next task
+- "wait" - Pause and revise current task
+- "no" - Skip or change approach
 - User can test at any checkpoint
 
 **Example:**
@@ -192,7 +192,7 @@ rapidspec/
 2. AI verifies actual code (prevents "imaginary code")
 3. AI researches best practices
 4. AI presents 2-3 options with pros/cons/costs
-5. User chooses option ("1", "2", "ㄱㄱ")
+5. User chooses option ("1", "2", "go")
 6. AI generates and validates files
 
 **Files created:**
@@ -212,15 +212,15 @@ rapidspec/
    - Shows current code
    - Shows proposed changes
    - Shows diff (Before → After)
-   - Waits for "ㄱㄱ" to proceed
+   - Waits for "go" to proceed
    - Implements
-   - Checkpoint: "ㄱㄱ" (continue) or "잠깐" (wait)
+   - Checkpoint: "go" (continue) or "wait" (pause)
 5. Suggests `/rapid:review` when complete
 
 **Checkpoint handling:**
 - User can test at any checkpoint
-- Say "잠깐" (wait) to pause and revise
-- Say "아니" (no) to skip or change approach
+- Say "wait" to pause and revise
+- Say "no" to skip or change approach
 - AI updates tasks.md to reflect changes
 
 ### Stage 3: Archiving Changes (Archive)
@@ -432,7 +432,7 @@ See `agents/` directory for full list and documentation.
 ## User Communication Style
 
 - User may use Korean/English mix
-- Common responses: "ㄱㄱ" (go), "잠깐" (wait), "아니" (no)
+- Common responses: "go" (continue), "wait" (pause), "no" (skip)
 - Always show diffs (Before → After) for code changes
 - Verify actual code (no "imaginary code")
 - Wait for user approval at checkpoints

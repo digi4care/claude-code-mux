@@ -5,6 +5,22 @@ All notable changes to Claude Code Mux will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.7.0] - 2026-01-09
+
+### Added
+- Multi-tenant authentication system epic documentation
+  - Complete database schema design (users, api_keys, usage_stats, sessions)
+  - SQLite optimization settings (WAL mode, PRAGMA configuration)
+  - Security implementation guidelines (bcrypt vs SHA-256)
+  - Performance optimization strategies (indexes, caching, archival)
+  - PostgreSQL migration triggers and timeline
+  - Reviewed by database architect agent
+
+### Changed
+- Enhanced database foundation epic with implementation details
+- Added connection pooling configuration for SQLite
+- Added migration system structure (SQLx up/down.sql)
+
 ## [0.6.9] - 2026-01-09
 
 ### Fixed
