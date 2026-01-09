@@ -437,7 +437,7 @@ Implementation is in:
 
 ## Related Documentation
 
-- [URL-based State Management](./url-state-management.md) - Navigation state management using URL parameters
+- [@/docs/url-state-management.md](@/docs/url-state-management.md) - Navigation state management using URL parameters
 
 ## Future Improvements
 

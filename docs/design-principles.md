@@ -233,5 +233,5 @@ Now go to the Model tab to add models using this Provider
 - [8 Writing Principles of Toss](https://toss.tech/article/8-writing-principles-of-toss)
 
 ### Project Documentation
-- [URL-based State Management](./url-state-management.md) - Our navigation pattern
-- [LocalStorage-based State Management](./localstorage-state-management.md) - Our state management pattern
+- [@/docs/url-state-management.md](@/docs/url-state-management.md) - Our navigation pattern
+- [@/docs/localstorage-state-management.md](@/docs/localstorage-state-management.md) - Our state management pattern

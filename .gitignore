@@ -30,4 +30,6 @@ logs/
 # Claude Code / Generated
 .auto-claude/
 .claude_settings.json
+
+# Node.js (admin UI development)
 node_modules/

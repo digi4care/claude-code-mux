@@ -16,19 +16,24 @@ See `@/rapidspec/AGENTS.md` for:
 
 Keep this file so `rapid update` can refresh instructions.
 
-## Version Management
+---
 
-**Always bump the version according to Semantic Versioning (SemVer) before every release/build:**
+## ⚠️ CRITICAL: MANDATORY WORKFLOW FOR ANY CHANGE
 
-- **Cargo.toml** - Update `version` field (currently `0.6.3`)
-- **CHANGELOG.md** - Add new entry following [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) format
-  - Use sections: Added, Changed, Deprecated, Removed, Fixed, Security
-  - Add version comparison link at bottom (e.g., `[0.6.4]: https://github.com/9j/claude-code-mux/compare/v0.6.3...v0.6.4`)
+**BEFORE making any changes:**
 
-**SemVer Rules:**
+1. **Bump version in `Cargo.toml`** (SemVer)
+2. **Update `CHANGELOG.md`** with new entry
+3. **Only THEN build/commit**
+
+**SemVer rules:**
 - **MAJOR** (0.x.0 → 1.0.0): Breaking changes
 - **MINOR** (0.6.x → 0.7.0): New features (backwards compatible)
 - **PATCH** (0.6.3 → 0.6.4): Bug fixes (backwards compatible)
+
+**NEVER skip - EVERY change, no matter how small.**
+
+---
 
 ## Architecture Guidelines
 

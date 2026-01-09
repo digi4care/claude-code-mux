@@ -1026,9 +1026,9 @@ If `zai` fails → automatically falls back to `openrouter`. **No manual interve
 
 ## Documentation
 
-- [Design Principles](docs/design-principles.md) - Claude Code Mux design philosophy and UX guidelines
-- [URL-based State Management](docs/url-state-management.md) - Admin UI URL-based state management pattern
-- [LocalStorage-based State Management](docs/localstorage-state-management.md) - Admin UI localStorage-based client state management
+- [Design Principles](@/docs/design-principles.md) - Claude Code Mux design philosophy and UX guidelines
+- [URL-based State Management](@/docs/url-state-management.md) - Admin UI URL-based state management pattern
+- [LocalStorage-based State Management](@/docs/localstorage-state-management.md) - Admin UI localStorage-based client state management
 
 ## Changelog
 
@@ -1073,7 +1073,7 @@ Have an idea? [Start a discussion](https://github.com/9j/claude-code-mux/discuss
 - Write blog posts or create videos
 - Join discussions and help other users
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+See [@/CONTRIBUTING.md](@/CONTRIBUTING.md) for detailed guidelines.
 
 ## License
 

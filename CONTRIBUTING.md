@@ -163,9 +163,9 @@ match config.load() {
 
 When modifying the Admin UI (`src/server/admin.html`):
 
-1. **Follow design principles**: See [docs/design-principles.md](docs/design-principles.md)
-2. **Use URL-based routing**: See [docs/url-state-management.md](docs/url-state-management.md)
-3. **Update localStorage properly**: See [docs/localstorage-state-management.md](docs/localstorage-state-management.md)
+1. **Follow design principles**: See [@/docs/design-principles.md](@/docs/design-principles.md)
+2. **Use URL-based routing**: See [@/docs/url-state-management.md](@/docs/url-state-management.md)
+3. **Update localStorage properly**: See [@/docs/localstorage-state-management.md](@/docs/localstorage-state-management.md)
 4. **Key rules**:
    - One purpose per page
    - Show value before complexity
@@ -320,7 +320,7 @@ mod tests {
 
 - **General questions**: [GitHub Discussions](https://github.com/9j/claude-code-mux/discussions)
 - **Bug reports**: [GitHub Issues](https://github.com/9j/claude-code-mux/issues)
-- **Security issues**: See [SECURITY.md](SECURITY.md) (create if sensitive)
+- **Security issues**: See [@/SECURITY.md](@/SECURITY.md) (create if sensitive)
 
 ## License
 

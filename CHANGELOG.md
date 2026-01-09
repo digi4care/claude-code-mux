@@ -5,6 +5,23 @@ All notable changes to Claude Code Mux will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# Changelog
+
+All notable changes to Claude Code Mux will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [0.6.6] - 2026-01-09
+
+### Fixed
+- Updated all markdown file references to use `@/` syntax for Claude Code compatibility
+- Added `node_modules/` to `.gitignore` for admin UI development
+
+### Changed
+- Enhanced CLAUDE.md with mandatory version bump and changelog workflow
+- Standardized documentation link format across all `.md` files
+
 ## [0.6.5] - 2026-01-09
 
 ### Fixed
