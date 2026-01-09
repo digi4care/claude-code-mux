@@ -11,7 +11,7 @@ OpenRouter met Claude Code Router. They had a baby.
 
 ---
 
-Now your coding assistant can use GLM 4.6 for one task, Kimi K2 Thinking for another, and Minimax M2 for a third. All in the same session. When your primary provider goes down, it falls back to your backup automatically.
+Now your coding assistant can use GLM 4.6 for one task, Kimi K2 Thinking for another, and Minimax M2.1 for a third. All in the same session. When your primary provider goes down, it falls back to your backup automatically.
 
 ⚡️ **Multi-model intelligence with provider resilience**
 
@@ -105,12 +105,12 @@ Claude Code → Claude Code Mux → Multiple AI Providers
 - **Anthropic (OAuth)** - 🆓 **FREE for Claude Pro/Max subscribers** via OAuth 2.0
 - **ZenMux** - Unified API gateway (Sunnyvale, CA)
 - **z.ai** - China-based, GLM models
-- **Minimax** - China-based, MiniMax-M2 model
+- **Minimax** - China-based, MiniMax-M2.1model
 - **Kimi For Coding** - Premium membership for Kimi
 
 ### OpenAI-Compatible
 - **OpenAI** - Official OpenAI API (supports both API Key and OAuth)
-- **OpenAI (OAuth)** - 🆓 **FREE for ChatGPT Plus/Pro subscribers** via OAuth 2.0 (GPT-5.1, GPT-5.1 Codex)
+- **OpenAI (OAuth)** - 🆓 **FREE for ChatGPT Plus/Pro subscribers** via OAuth 2.0 (GPT-5.2, GPT-5.2 Codex)
 - **OpenRouter** - Unified API gateway (500+ models)
 - **Groq** - LPU inference (ultra-fast)
 - **Together AI** - Open source model inference
@@ -345,43 +345,43 @@ Navigate to **Providers** tab → Click **"Add Provider"**
 
 Navigate to **Models** tab → Click **"Add Model"**
 
-#### Example: Minimax M2 (Ultra-fast, Low Cost)
-1. Model Name: `minimax-m2`
+#### Example: Minimax M2.1 (Ultra-fast, Low Cost)
+1. Model Name: `minimax-m2.1
 2. Add mapping:
    - Provider: `minimax`
    - Actual Model: `MiniMax M2`
    - Priority: `1`
 3. Click **"Add Model"**
 
-> **Why Minimax M2?** - $0.30/$1.20 per M tokens (8% of Claude Sonnet 4.5 cost), 100 TPS throughput, MoE architecture
+> **Why Minimax M2.1?** - $0.30/$1.20 per M tokens (8% of Claude Sonnet 4.5 cost), 100 TPS throughput, MoE architecture
 
-#### Example: GLM-4.6 with Fallback (Cost Optimized)
-1. Model Name: `glm-4.6`
+#### Example: GLM-4.7 with Fallback (Cost Optimized)
+1. Model Name: `glm-4.7`
 2. Add mappings:
    - **Mapping 1** (Primary):
      - Provider: `zai`
-     - Actual Model: `glm-4.6`
+     - Actual Model: `glm-4.7`
      - Priority: `1`
    - **Mapping 2** (Fallback):
      - Provider: `openrouter`
-     - Actual Model: `z-ai/glm-4.6`
+     - Actual Model: `z-ai/glm-4.7`
      - Priority: `2`
 3. Click **"+ Fallback Provider Add"** to add more fallbacks
 4. Click **"Add Model"**
 
 > **How Fallback Works**: If `zai` provider fails, automatically falls back to `openrouter`
 >
-> **GLM-4.6 Pricing**: $0.60/$2.20 per M tokens (90% cheaper than Claude Sonnet 4.5), 200K context window
+> **GLM-4.7 Pricing**: $0.60/$2.20 per M tokens (90% cheaper than Claude Sonnet 4.5), 200K context window
 
 ### Step 3: Configure Router
 
 Navigate to **Router** tab
 
 Configure routing rules (auto-saves on change!):
-- **Default Model**: `minimax-m2` (general tasks - ultra-fast, 8% of Claude cost)
+- **Default Model**: `minimax-m2.1 (general tasks - ultra-fast, 8% of Claude cost)
 - **Think Model**: `kimi-k2` (plan mode with reasoning - 256K context)
 - **Background Model**: `glm-4.5-air` (simple background tasks)
-- **WebSearch Model**: `glm-4.6` (web search tasks)
+- **WebSearch Model**: `glm-4.7` (web search tasks)
 - **Auto-map Regex Pattern**: `^claude-` (transform Claude models before routing)
 - **Background Task Regex Pattern**: `(?i)claude.*haiku` (detect background tasks)
 
@@ -406,7 +406,7 @@ Click **"💾 Save to Server"** to save configuration to disk, or **"🔄 Save &
 ### Step 5: Test Your Setup
 
 Navigate to **Test** tab:
-1. Select a model (e.g., `minimax-m2` or `glm-4.6`)
+1. Select a model (e.g., `minimax-m2.1 or `glm-4.7`)
 2. Enter a message: `Hello, test message`
 3. Click **"Send Message"**
 4. View the response and check routing logs
@@ -418,7 +418,7 @@ Navigate to **Test** tab:
 ### 0. Auto-mapping (Model Name Transformation)
 - **Trigger**: Model name matches `auto_map_regex` pattern
 - **Example**: Request with `model="claude-4-5-sonnet"` and regex `^claude-`
-- **Action**: Transform `claude-4-5-sonnet` → `minimax-m2` (default model)
+- **Action**: Transform `claude-4-5-sonnet` → `minimax-m2.1 (default model)
 - **Then**: Continue to routing logic below
 - **Configuration**: Set in Router or Settings tab
 
@@ -427,7 +427,7 @@ Navigate to **Test** tab:
 ### 1. WebSearch (Highest Priority)
 - **Trigger**: Request contains `web_search` tool in tools array
 - **Example**: Claude Code using web search tool
-- **Routes to**: `websearch` model (e.g., GLM-4.6)
+- **Routes to**: `websearch` model (e.g., GLM-4.7)
 
 ### 2. Subagent Model
 - **Trigger**: System prompt contains `<CCM-SUBAGENT-MODEL>model-name</CCM-SUBAGENT-MODEL>` tag
@@ -457,12 +457,12 @@ Navigate to **Test** tab:
 ### Example 1: Claude Haiku with Web Search
 ```
 Request: model="claude-4-5-haiku", tools=[web_search]
-Config: auto_map_regex="^claude-", background_regex="(?i)claude.*haiku", websearch="glm-4.6"
+Config: auto_map_regex="^claude-", background_regex="(?i)claude.*haiku", websearch="glm-4.7"
 
 Flow:
-1. Auto-map: "claude-4-5-haiku" → "minimax-m2" (transformed)
-2. WebSearch check: tools has web_search → Route to "glm-4.6"
-Result: glm-4.6 (websearch model)
+1. Auto-map: "claude-4-5-haiku" → "minimax-m2.1 (transformed)
+2. WebSearch check: tools has web_search → Route to "glm-4.7"
+Result: glm-4.7 (websearch model)
 ```
 
 ### Example 2: Claude Haiku (No Special Conditions)
@@ -471,7 +471,7 @@ Request: model="claude-4-5-haiku"
 Config: auto_map_regex="^claude-", background_regex="(?i)claude.*haiku", background="glm-4.5-air"
 
 Flow:
-1. Auto-map: "claude-4-5-haiku" → "minimax-m2" (transformed)
+1. Auto-map: "claude-4-5-haiku" → "minimax-m2.1 (transformed)
 2. WebSearch check: No web_search tool
 3. Think check: No thinking field
 4. Background check on ORIGINAL: "claude-4-5-haiku" matches "(?i)claude.*haiku" → Route to "glm-4.5-air"
@@ -484,7 +484,7 @@ Request: model="claude-4-5-sonnet", thinking={type:"enabled"}
 Config: auto_map_regex="^claude-", think="kimi-k2-thinking"
 
 Flow:
-1. Auto-map: "claude-3-5-sonnet" → "minimax-m2" (transformed)
+1. Auto-map: "claude-3-5-sonnet" → "minimax-m2.1 (transformed)
 2. WebSearch check: No web_search tool
 3. Think check: thinking.type="enabled" → Route to "kimi-k2-thinking"
 Result: kimi-k2-thinking (think model)
@@ -492,16 +492,16 @@ Result: kimi-k2-thinking (think model)
 
 ### Example 4: Non-Claude Model (No Auto-mapping)
 ```
-Request: model="glm-4.6"
-Config: auto_map_regex="^claude-", default="minimax-m2"
+Request: model="glm-4.7"
+Config: auto_map_regex="^claude-", default="minimax-m2.1
 
 Flow:
-1. Auto-map: "glm-4.6" doesn't match "^claude-" → No transformation
+1. Auto-map: "glm-4.7" doesn't match "^claude-" → No transformation
 2. WebSearch check: No web_search tool
 3. Think check: No thinking field
-4. Background check: "glm-4.6" doesn't match background regex
+4. Background check: "glm-4.7" doesn't match background regex
 5. Default: Use model name as-is
-Result: glm-4.6 (original model name, routed through model mappings)
+Result: glm-4.7 (original model name, routed through model mappings)
 ```
 
 ## Configuration Examples
@@ -515,22 +515,22 @@ Result: glm-4.6 (original model name, routed through model mappings)
 - OpenRouter (fallback)
 
 **Models**:
-- `minimax-m2` → Minimax (`MiniMax M2`) — $0.30/$1.20 per M tokens
-- `glm-4.6` → z.ai (`glm-4.6`) with OpenRouter fallback — $0.60/$2.20 per M tokens
-- `glm-4.5-air` → z.ai (`glm-4.5-air`) — Lower cost than GLM-4.6
+- `minimax-m2.1 → Minimax (`MiniMax M2`) — $0.30/$1.20 per M tokens
+- `glm-4.7` → z.ai (`glm-4.7`) with OpenRouter fallback — $0.60/$2.20 per M tokens
+- `glm-4.5-air` → z.ai (`glm-4.5-air`) — Lower cost than GLM-4.7
 - `kimi-k2-thinking` → Kimi (`kimi-k2-thinking`) — Reasoning optimized, 256K context
 
 **Routing**:
-- Default: `minimax-m2` (8% of Claude cost, 100 TPS)
+- Default: `minimax-m2.1 (8% of Claude cost, 100 TPS)
 - Think: `kimi-k2-thinking` (thinking model with 256K context)
 - Background: `glm-4.5-air` (simple tasks)
-- WebSearch: `glm-4.6` (web search + reasoning)
-- Auto-map Regex: `^claude-` (transform Claude models to minimax-m2)
+- WebSearch: `glm-4.7` (web search + reasoning)
+- Auto-map Regex: `^claude-` (transform Claude models to minimax-m2.1
 - Background Regex: `(?i)claude.*haiku` (detect Haiku models for background)
 
 **Cost Comparison** (per 1M tokens):
-- Minimax M2: $0.30 input / $1.20 output
-- GLM-4.6: $0.60 input / $2.20 output
+- Minimax M2.1: $0.30 input / $1.20 output
+- GLM-4.7: $0.60 input / $2.20 output
 - Claude Sonnet 4.5: $3.00 input / $15.00 output
 - **Savings**: ~90% cost reduction vs Claude
 
@@ -558,18 +558,18 @@ Result: glm-4.6 (original model name, routed through model mappings)
 - OpenRouter (fallback for all)
 
 **Models**:
-- `minimax-m2`:
-  - Priority 1: Minimax → `MiniMax-M2`
-  - Priority 2: OpenRouter → `minimax/minimax-m2` (if available)
-- `glm-4.6`:
-  - Priority 1: z.ai → `glm-4.6`
-  - Priority 2: OpenRouter → `z-ai/glm-4.6`
+- `minimax-m2.1:
+  - Priority 1: Minimax → `MiniMax-M2.1
+  - Priority 2: OpenRouter → `minimax/minimax-m2.1 (if available)
+- `glm-4.7`:
+  - Priority 1: z.ai → `glm-4.7`
+  - Priority 2: OpenRouter → `z-ai/glm-4.7`
 
 **Routing**:
-- Default: `minimax-m2` (falls back to OpenRouter if Minimax fails)
-- Think: `glm-4.6` (with OpenRouter fallback)
+- Default: `minimax-m2.1 (falls back to OpenRouter if Minimax fails)
+- Think: `glm-4.7` (with OpenRouter fallback)
 - Background: `glm-4.5-air`
-- WebSearch: `glm-4.6`
+- WebSearch: `glm-4.7`
 
 ## Advanced Features
 
@@ -613,7 +613,7 @@ Claude Pro/Max, ChatGPT Plus/Pro, and Google AI Pro/Ultra subscribers can use th
 
 > **💡 Supported Models**:
 > - **Claude OAuth**: All Claude models (Opus, Sonnet, Haiku)
-> - **ChatGPT OAuth**: GPT-5.1, GPT-5.1 Codex (with reasoning blocks converted to thinking)
+> - **ChatGPT OAuth**: GPT-5.2, GPT-5.2 Codex (with reasoning blocks converted to thinking)
 > - **Gemini OAuth**: All Gemini models via Code Assist API (Pro, Flash, Ultra)
 
 **Via CLI Tool**:
@@ -678,13 +678,13 @@ Automatically transform model names before routing logic is applied:
 
 **Example**:
 ```
-Config: auto_map_regex="^claude-", default="minimax-m2", websearch="glm-4.6"
+Config: auto_map_regex="^claude-", default="minimax-m2.1, websearch="glm-4.7"
 Request: model="claude-sonnet", tools=[web_search]
 
 Flow:
-1. Transform: "claude-sonnet" → "minimax-m2"
-2. Route: WebSearch detected → "glm-4.6"
-Result: glm-4.6 model
+1. Transform: "claude-sonnet" → "minimax-m2.1
+2. Route: WebSearch detected → "glm-4.7"
+Result: glm-4.7 model
 ```
 
 ### Background Task Detection with Regex
@@ -711,7 +711,7 @@ curl -X POST http://127.0.0.1:13456/v1/messages \
   -H "Content-Type: application/json" \
   -H "anthropic-version: 2023-06-01" \
   -d '{
-    "model": "minimax-m2",
+    "model": "minimax-m2.1,
     "max_tokens": 1000,
     "stream": true,
     "messages": [{"role": "user", "content": "Hello"}]
@@ -728,15 +728,15 @@ Automatic failover with priority-based routing:
 
 ```toml
 [[models]]
-name = "glm-4.6"
+name = "glm-4.7"
 
 [[models.mappings]]
-actual_model = "glm-4.6"
+actual_model = "glm-4.7"
 priority = 1
 provider = "zai"
 
 [[models.mappings]]
-actual_model = "z-ai/glm-4.6"
+actual_model = "z-ai/glm-4.7"
 priority = 2
 provider = "openrouter"
 ```
@@ -902,7 +902,7 @@ curl -X POST http://127.0.0.1:13456/v1/messages \
   -H "Content-Type: application/json" \
   -H "anthropic-version: 2023-06-01" \
   -d '{
-    "model": "minimax-m2",
+    "model": "minimax-m2.1,
     "max_tokens": 100,
     "messages": [{"role": "user", "content": "Hello"}]
   }'
@@ -996,15 +996,15 @@ Priority-based provider fallback - if your primary provider fails, automatically
 
 ```toml
 [[models]]
-name = "glm-4.6"
+name = "glm-4.7"
 
 [[models.mappings]]
-actual_model = "glm-4.6"
+actual_model = "glm-4.7"
 priority = 1
 provider = "zai"
 
 [[models.mappings]]
-actual_model = "z-ai/glm-4.6"
+actual_model = "z-ai/glm-4.7"
 priority = 2
 provider = "openrouter"
 ```
@@ -1039,9 +1039,9 @@ If `zai` fails → automatically falls back to `openrouter`. **No manual interve
 
 ## Documentation
 
-- [Design Principles](@/docs/design-principles.md) - Claude Code Mux design philosophy and UX guidelines
-- [URL-based State Management](@/docs/url-state-management.md) - Admin UI URL-based state management pattern
-- [LocalStorage-based State Management](@/docs/localstorage-state-management.md) - Admin UI localStorage-based client state management
+- [Design Principles](docs/design-principles.md) - Claude Code Mux design philosophy and UX guidelines
+- [URL-based State Management](docs/url-state-management.md) - Admin UI URL-based state management pattern
+- [LocalStorage-based State Management](docs/localstorage-state-management.md) - Admin UI localStorage-based client state management
 
 ## Changelog
 
@@ -1086,7 +1086,7 @@ Have an idea? [Start a discussion](https://github.com/9j/claude-code-mux/discuss
 - Write blog posts or create videos
 - Join discussions and help other users
 
-See [@/CONTRIBUTING.md](@/CONTRIBUTING.md) for detailed guidelines.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ## License
 

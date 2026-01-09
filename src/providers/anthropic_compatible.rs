@@ -333,6 +333,9 @@ impl AnthropicProvider for AnthropicCompatibleProvider {
                                 crate::models::ContentBlock::Thinking { thinking, .. } => {
                                     Some(thinking.clone())
                                 }
+                                crate::models::ContentBlock::WebSearchToolResult { .. } => {
+                                    Some("[Web Search Result]".to_string())
+                                }
                                 _ => None,
                             }
                         })

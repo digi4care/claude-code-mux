@@ -1,13 +1,13 @@
 [[models]]
-name = "glm-4.6"
+name = "glm-4.7"
 
 [[models.mappings]]
-actual_model = "glm-4.6"
+actual_model = "glm-4.7"
 priority = 1
 provider = "zai coding plan"
 
 [[models.mappings]]
-actual_model = "z-ai/glm-4.6"
+actual_model = "z-ai/glm-4.7"
 priority = 2
 provider = "openrouter"
 
@@ -56,9 +56,9 @@ provider_type = "anthropic"
 
 [router]
 background = "glm-4.5-air"
-default = "glm-4.6"
+default = "glm-4.7"
 think = "kimi-for-coding"
-websearch = "glm-4.6"
+websearch = "glm-4.7"
 
 [server]
 host = "127.0.0.1"

@@ -5,6 +5,15 @@ All notable changes to Claude Code Mux will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.7.1] - 2026-01-09
+
+### Fixed
+- Fixed z.ai provider parse error for `web_search_tool_result` content blocks
+  - Added `WebSearchToolResult` variant to `ContentBlock` enum
+  - Added `WebSearchResultContent` and `WebSearchResultBlock` types
+  - Updated token counting and OpenAI conversion to handle web search results
+  - Resolves "unknown variant `web_search_tool_result`" errors
+
 ## [0.7.0] - 2026-01-09
 
 ### Added
@@ -104,7 +113,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - OpenAI ChatGPT Plus/Pro OAuth 2.0 authentication support
-- GPT-5.1 and GPT-5.1 Codex model support via OpenAI OAuth
+- GPT-5.2 and GPT-5.2 Codex model support via OpenAI OAuth
 - OpenAI Codex Responses API integration (`/codex/responses` endpoint)
 - Reasoning block to thinking block conversion for Codex models
 - Separate OAuth callback server on port 1455 for OpenAI OAuth
@@ -123,7 +132,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - OpenAI Codex model streaming with proper endpoint routing
 - PKCE state/verifier separation for OpenAI OAuth compatibility
-- Reasoning block handling in gpt-5.1-codex responses
+- Reasoning block handling in gpt-5.2-codex responses
 
 ## [0.4.3] - 2025-11-17
 

@@ -216,7 +216,7 @@ default = "placeholder-model"
 # Optional: Model for thinking/reasoning tasks (e.g., "claude-opus-4-1")
 # think = ""
 
-# Optional: Model for web search tasks (e.g., "glm-4.6")
+# Optional: Model for web search tasks (e.g., "glm-4.7")
 # websearch = ""
 
 # Optional: Regex pattern for auto-mapping models (e.g., "^claude-")

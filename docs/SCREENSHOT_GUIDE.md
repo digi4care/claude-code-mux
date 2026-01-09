@@ -94,7 +94,7 @@ This guide will help you capture high-quality screenshots for the README and doc
 **What to capture**:
 - Full models list view
 - At least 3-4 model cards showing:
-  - Model name (e.g., "glm-4.6", "gpt-5.1", "kimi-for-coding")
+  - Model name (e.g., "glm-4.7", "gpt-5.2", "kimi-for-coding")
   - Provider mappings with priority badges:
     - "Priority 1" badge (blue/primary)
     - "Priority 2" badge (gray/secondary) - for fallback
@@ -103,12 +103,12 @@ This guide will help you capture high-quality screenshots for the README and doc
 
 **Example models to show**:
 ```
-glm-4.6
-  - Priority 1: zai → glm-4.6
-  - Priority 2: openrouter → z-ai/glm-4.6
+glm-4.7
+  - Priority 1: zai → glm-4.7
+  - Priority 2: openrouter → z-ai/glm-4.7
 
-gpt-5.1
-  - Priority 1: zenmux → openai/gpt-5.1
+gpt-5.2
+  - Priority 1: zenmux → openai/gpt-5.2
 
 kimi-for-coding
   - Priority 1: kimi-for-coding → claude-sonnet-4-5-20250929

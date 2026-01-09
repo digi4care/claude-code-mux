@@ -684,6 +684,9 @@ impl OpenAIProvider {
                             crate::models::ContentBlock::Thinking { .. } => {
                                 // OpenAI doesn't have thinking blocks, skip
                             }
+                            crate::models::ContentBlock::WebSearchToolResult { .. } => {
+                                // OpenAI doesn't have web search blocks, skip
+                            }
                         }
                     }
 

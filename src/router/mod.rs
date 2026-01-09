@@ -408,10 +408,10 @@ mod tests {
 
         // Test non-Claude model (should not auto-map, use model name as-is)
         let mut request = create_simple_request("Hello");
-        request.model = "glm-4.6".to_string();
+        request.model = "glm-4.7".to_string();
 
         let decision = router.route(&mut request).unwrap();
         assert_eq!(decision.route_type, RouteType::Default);
-        assert_eq!(decision.model_name, "glm-4.6"); // Uses original model name (no auto-mapping)
+        assert_eq!(decision.model_name, "glm-4.7"); // Uses original model name (no auto-mapping)
     }
 }

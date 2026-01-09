@@ -68,6 +68,14 @@ pub enum ToolResultContent {
     Blocks(Vec<ToolResultBlock>),
 }
 
+/// Web search result content (for web_search_tool_result)
+#[derive(Debug, Clone, Deserialize, Serialize)]
+#[serde(untagged)]
+pub enum WebSearchResultContent {
+    Text(String),
+    Blocks(Vec<WebSearchResultBlock>),
+}
+
 impl ToolResultContent {
     /// Convert to string (for OpenAI compatibility)
     pub fn to_string(&self) -> String {
@@ -90,6 +98,16 @@ impl ToolResultContent {
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(tag = "type")]
 pub enum ToolResultBlock {
+    #[serde(rename = "text")]
+    Text { text: String },
+    #[serde(rename = "image")]
+    Image { source: ImageSource },
+}
+
+/// Content blocks allowed in web search tool results
+#[derive(Debug, Clone, Deserialize, Serialize)]
+#[serde(tag = "type")]
+pub enum WebSearchResultBlock {
     #[serde(rename = "text")]
     Text { text: String },
     #[serde(rename = "image")]
@@ -127,6 +145,11 @@ pub enum ContentBlock {
     Thinking {
         thinking: String,
         signature: String,
+    },
+    #[serde(rename = "web_search_tool_result")]
+    WebSearchToolResult {
+        id: String,
+        content: WebSearchResultContent,
     },
 }
 

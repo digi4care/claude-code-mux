@@ -33,7 +33,7 @@ This directory contains screenshots for the README.
 - **What to capture**:
   - Model list showing mappings
   - Fallback priorities visible (Priority 1, 2, etc.)
-  - Example: `glm-4.6` with multiple providers
+  - Example: `glm-4.7` with multiple providers
   - "Add Model" button visible
 
 **Recommended size**: 1200x800px or similar
