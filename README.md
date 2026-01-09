@@ -1039,6 +1039,7 @@ If `zai` fails → automatically falls back to `openrouter`. **No manual interve
 
 ## Documentation
 
+- [Provider Reference](docs/provider-reference.md) - Complete reference for all supported AI providers, API docs, and troubleshooting
 - [Design Principles](docs/design-principles.md) - Claude Code Mux design philosophy and UX guidelines
 - [URL-based State Management](docs/url-state-management.md) - Admin UI URL-based state management pattern
 - [LocalStorage-based State Management](docs/localstorage-state-management.md) - Admin UI localStorage-based client state management

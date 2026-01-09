@@ -5,6 +5,32 @@ All notable changes to Claude Code Mux will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.7.2] - 2026-01-09
+
+### Added
+- Comprehensive provider reference documentation (`docs/provider-reference.md`)
+  - Complete API documentation links for all 18 providers
+  - Provider type comparison (Anthropic-compatible vs OpenAI-compatible vs Custom)
+  - Content block types and conversion limitations
+  - Troubleshooting guide for common provider issues
+  - OAuth provider reference
+  - Performance notes and token counting accuracy
+
+### Changed
+- Enhanced README with provider reference documentation link
+- Documented thinking/reasoning mode differences across providers
+  - Anthropic: Extended thinking (PUBLIC - visible in response)
+  - OpenAI: Reasoning models (INTERNAL - hidden, uses max_completion_tokens)
+  - Gemini: Thinking mode (INTERNAL - hidden, uses thinking_budget)
+- Clarified that OpenAI and Gemini DO support thinking, but it's not returned in API responses
+
+### Verified
+- Provider API audit: All 18 providers verified against current documentation
+- Anthropic-compatible (6): anthropic, z.ai, minimax, zenmux, kimi-coding, openrouter
+- OpenAI-compatible (11): openai, openrouter, groq, together, fireworks, deepinfra, cerebras, nebius, moonshot, novita, baseten
+- Google providers (2): gemini, vertex-ai
+- All base URLs confirmed correct and up-to-date
+
 ## [0.7.1] - 2026-01-09
 
 ### Fixed
