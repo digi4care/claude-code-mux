@@ -26,3 +26,8 @@ logs/
 
 # Other
 .serena
+
+# Claude Code / Generated
+.auto-claude/
+.claude_settings.json
+node_modules/

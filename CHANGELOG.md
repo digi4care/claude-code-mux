@@ -5,6 +5,14 @@ All notable changes to Claude Code Mux will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.5] - 2026-01-09
+
+### Fixed
+- Added support for `server_tool_use` content block type
+  - MiniMax API returns server_tool_use in responses
+  - Previously caused parse errors: "unknown variant `server_tool_use`"
+  - Added ServerToolUse variant to ContentBlock enum
+
 ## [0.6.4] - 2026-01-09
 
 ### Fixed
@@ -131,6 +139,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - TOML-based configuration
 - Token counting endpoint (`/v1/messages/count_tokens`)
 
+[0.6.5]: https://github.com/9j/claude-code-mux/compare/v0.6.4...v0.6.5
 [0.6.4]: https://github.com/9j/claude-code-mux/compare/v0.6.3...v0.6.4
 [0.6.0]: https://github.com/9j/claude-code-mux/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/9j/claude-code-mux/compare/v0.4.3...v0.5.0

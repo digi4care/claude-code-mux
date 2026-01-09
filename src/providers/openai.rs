@@ -675,6 +675,9 @@ impl OpenAIProvider {
                             crate::models::ContentBlock::ToolUse { .. } => {
                                 // Already handled in tool_calls
                             }
+                            crate::models::ContentBlock::ServerToolUse { .. } => {
+                                // Already handled in tool_calls
+                            }
                             crate::models::ContentBlock::ToolResult { .. } => {
                                 // Will be handled as separate messages below
                             }
