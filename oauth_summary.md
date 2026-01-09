@@ -168,9 +168,9 @@ When requests are made:
 
 ## 🎉 Result
 
-OAuth 인증 시스템이 성공적으로 구현되었습니다!
+OAuth authentication system successfully implemented!
 
-빌드: ✅ 성공
-테스트: 구조 검증 완료
-문서: 완료
-예제: 제공됨
+Build: ✅ Success
+Tests: Structure validation complete
+Documentation: Complete
+Examples: Provided
