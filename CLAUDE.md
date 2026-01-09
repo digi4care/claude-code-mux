@@ -35,6 +35,34 @@ Keep this file so `rapid update` can refresh instructions.
 
 ---
 
+## Git Tags Policy
+
+**IMPORTANT:** Version numbers in `CHANGELOG.md` are NOT releases.
+
+**Real releases MUST be tagged:**
+```bash
+# After bumping version and updating CHANGELOG:
+git tag -a v0.7.0 -m "Release v0.7.0: Korean text fixes"
+git push origin v0.7.0
+```
+
+**Rules:**
+1. **Always create annotated tags** (`-a` flag with message)
+2. **Tag AFTER committing** version bump + CHANGELOG
+3. **Push tags explicitly**: `git push origin <tag>`
+4. **Tags are immutable** - never delete/recreate a pushed tag
+5. **CHANGELOG is just documentation** - only tags are real releases
+
+**Check existing tags:**
+```bash
+git tag              # List all tags
+git show v0.6.3     # Show tag details
+git tag -d v0.7.0   # DELETE local tag (if wrong)
+git push origin :refs/tags/v0.7.0  # DELETE remote tag (DANGER)
+```
+
+---
+
 ## Architecture Guidelines
 
 ### Admin UI State Management
